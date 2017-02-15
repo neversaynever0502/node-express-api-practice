@@ -19,7 +19,7 @@ var app = express();
 // var dbName = 'movieDB';
 var connectionString = 'mongodb://user:123456@ds153669.mlab.com:53669/practice123';
 
-mongoose.connect(connectionString);
+mongoose.connect(process.env.PROD_MONGODB);
 
 
 
