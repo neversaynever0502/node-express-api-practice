@@ -17,7 +17,7 @@ var app = express();
 //connect to our database
 //Ideally you will obtain DB details from a config file
 // var dbName = 'movieDB';
-var connectionString = 'mongodb://user:123456@ds153669.mlab.com:53669/practice123';
+var connectionString = 'mongodb://heroku_gfnbbswz:a2hc4h5083sl9o842h7sjk2asb@ds153659.mlab.com:53659/heroku_gfnbbswz';
 
 mongoose.connect(connectionString);
 
