@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-var movies = require('./routes/movies'); //routes are defined here
+var members = require('./routes/members'); //routes are defined here
 var index = require('./routes/index');
 var users = require('./routes/users');
 var apis = require('./routes/apis');
@@ -16,8 +16,10 @@ var app = express();
 
 //connect to our database
 //Ideally you will obtain DB details from a config file
-// var dbName = 'movieDB';
+// var dbName = 'memberDB';
+// var connectionString = 'mongodb://localhost:27017/'+dbName;
 var connectionString = 'mongodb://user:123456@ds153669.mlab.com:53669/practice123';
+
 
 mongoose.connect(connectionString);
 
@@ -36,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api',apis);
-app.use('/movie', movies); //This is our route middleware
+app.use('/newapi', members); //This is our route middleware
 app.use('/', index);
 app.use('/users', users);
 

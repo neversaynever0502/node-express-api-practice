@@ -1,8 +1,8 @@
-var Movie = require('../models/movie');
+var Movie = require('../models/member');
 var express = require('express');
 var router = express.Router();
 
-router.route('/movies')
+router.route('/members')
   .get(function(req, res) {
     Movie.find(function(err, movies) {
       if (err) {
@@ -14,16 +14,16 @@ router.route('/movies')
 
   .post(function(req, res) {
     var movie = new Movie(req.body);
-
+    
     movie.save(function(err) {
       if (err) {
         return res.send(err);
       }
-      res.send({ message: 'Movie Added' });
+      res.send({ message: 'Member Added:'+req.body.email });
     });
   });
 
-router.route('/movies/:id').put(function(req,res){
+router.route('/members/:id').put(function(req,res){
 
   Movie.findOne({ _id: req.params.id }, function(err, movie) {
     if (err) {
@@ -40,12 +40,12 @@ router.route('/movies/:id').put(function(req,res){
         return res.send(err);
       }
 
-      res.json({ message: 'Movie updated!' });
+      res.json({ message: 'Member updated!' });
     });
   });
 });
 
-router.route('/movies/:id').get(function(req, res) {
+router.route('/members/:id').get(function(req, res) {
   Movie.findOne({ _id: req.params.id}, function(err, movie) {
     if (err) {
       return res.send(err);
@@ -56,7 +56,7 @@ router.route('/movies/:id').get(function(req, res) {
 });
 
 
-router.route('/movies/:id').delete(function(req, res) {
+router.route('/members/:id').delete(function(req, res) {
   Movie.remove({
     _id: req.params.id
   }, function(err, movie) {
