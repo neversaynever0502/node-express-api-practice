@@ -1,6 +1,16 @@
 var Movie = require('../models/member');
+var mailer = require('../func/nodemailer');
 var express = require('express');
 var router = express.Router();
+
+router.route('/testmail').get(function(req, res) {
+    mailer('neversaynever0502@gmail.com');
+    res.json({ message: "success email" });
+ });
+router.route('/testget').get(function(req, res) {
+   console.log("test");
+    res.json({ message: "success test" });
+ });
 
 router.route('/members')
   .get(function(req, res) {
@@ -19,6 +29,7 @@ router.route('/members')
       if (err) {
         return res.send(err);
       }
+      mailer(req.body.email);
       res.send({ message: 'Member Added:'+req.body.email });
     });
   });
