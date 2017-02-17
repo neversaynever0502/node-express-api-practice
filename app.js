@@ -41,6 +41,7 @@ app.use('/api',apis);
 app.use('/newapi', members); //This is our route middleware
 app.use('/', index.memberAll);
 app.use('/users', users);
+app.use('/bot',bots);
 
 
 // catch 404 and forward to error handler
