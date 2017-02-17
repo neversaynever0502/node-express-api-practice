@@ -15,4 +15,4 @@ router.get('/', function(req, res, next) {
     });
 });
 
-exports.memerAll = router;
+exports.memberAll = router;
