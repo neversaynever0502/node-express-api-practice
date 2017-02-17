@@ -10,3 +10,4 @@ router.route('/').post(function(req, res) {
 // const app2 = express();
 // const linebotParser = bot.parser();
 // app2.post('/bot', linebotParser);
+module.exports = router;
