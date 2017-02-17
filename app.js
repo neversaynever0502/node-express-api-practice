@@ -41,12 +41,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api',apis);
-app.use('/newapi', members); //This is our route middleware
-app.use('/', index.memberAll);
-app.use('/users', users);
-app.use('/bot',bots);
-
 app.all('*', function(req, res, next) {  
     res.header("Access-Control-Allow-Origin", "*");  
     res.header("Access-Control-Allow-Headers", "X-Requested-With");  
@@ -55,6 +49,13 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");  
     next();  
 });  
+
+app.use('/api',apis);
+app.use('/newapi', members); //This is our route middleware
+app.use('/', index.memberAll);
+app.use('/users', users);
+app.use('/bot',bots);
+
 // var bot = linebot({
 //   channelId: "1501711063",
 //   channelSecret: "8f0a3770e17a34091ae10d23d60f1e8b",
