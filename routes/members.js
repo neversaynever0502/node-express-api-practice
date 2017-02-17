@@ -1,7 +1,6 @@
 var Movie = require('../models/member');
 var mailer = require('../func/nodemailer');
 var express = require('express');
-var bodyParser = require('body-parser');
 var router = express.Router();
 
 router.route('/testmail').get(function(req, res) {
@@ -30,10 +29,17 @@ router.route('/members')
       if (err) {
         return res.send(err);
       }
-      mailer(req.body.email);
+      mailer(req.body.email,req.body.password);
       res.send({ message: 'Member Added:'+req.body.email });
     });
   });
+
+
+router.route('/members/confirm').get(function(req, res) {
+   res.json({'email':req.params.email,'password':req.params.password});
+   console.log('email confirmed')
+  });
+
 
 router.route('/members/:id').put(function(req,res){
 
