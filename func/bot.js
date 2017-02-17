@@ -12,9 +12,7 @@ var bot = linebot({
 //   console.log(event); //把收到訊息的 event 印出來看看
 // });
 
-// const app2 = express();
-// const linebotParser = bot.parser();
-// app2.post('/bot', linebotParser);
+
 
 module.exports = function (){
 
@@ -22,5 +20,8 @@ module.exports = function (){
 	  console.log(event); //把收到訊息的 event 印出來看看
 	});
 
-	
+	const app2 = express();
+	const linebotParser = bot.parser();
+	app2.post('/bot', linebotParser);
+
 }
