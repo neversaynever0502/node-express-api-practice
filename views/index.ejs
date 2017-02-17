@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Member</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Members</h1>
+    <!-- <p>Email <%= title %></p> -->
+     <ul>  
+	 <% for(var i=0; i<title.length; i++) {%>  
+	  <li>id:<%= title[i]._id %>，email:<%= title[i].email %>，password:<%= title[i].password %></li> 
+	 <% } %>  
+	 </ul> 
   </body>
 </html>

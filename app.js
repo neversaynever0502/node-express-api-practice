@@ -16,7 +16,7 @@ var app = express();
 
 //connect to our database
 //Ideally you will obtain DB details from a config file
-var dbName = 'memberDB';
+// var dbName = 'memberDB';
 // var connectionString = 'mongodb://localhost:27017/'+dbName;
 var connectionString = 'mongodb://user:123456@ds153669.mlab.com:53669/practice123';
 
