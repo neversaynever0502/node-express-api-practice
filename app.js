@@ -43,7 +43,24 @@ app.use('/api',apis);
 app.use('/newapi', members); //This is our route middleware
 app.use('/', index.memberAll);
 app.use('/users', users);
-app.use('/bot',bots);
+// app.use('/bot',bots);
+
+var linebot = require('linebot');
+
+var bot = linebot({
+  channelId: "1501711063",
+  channelSecret: "8f0a3770e17a34091ae10d23d60f1e8b",
+  channelAccessToken: "FwZsKqF19GuRSqB/IS04XpYZ13IVXd+uKQjFG3L0J46gggw096I8fTXGm7OR2FxeWu9qu4wNXSAyoT8GoWUz1gp4xrum/czwT7RL5SSwqk2kiSipawNmBEOyE00eHNPo9FXNbUNvYQsVJ64p1VJbqgdB04t89/1O/w1cDnyilFU="
+});
+
+bot.on('message', function(event) {
+  console.log(event); //把收到訊息的 event 印出來看看
+});
+
+const linebotParser = bot.parser();
+app.post('/bot', linebotParser);
+
+
 
 
 // catch 404 and forward to error handler
