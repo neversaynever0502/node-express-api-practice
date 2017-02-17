@@ -10,6 +10,8 @@ var members = require('./routes/members'); //routes are defined here
 var index = require('./routes/index');
 var users = require('./routes/users');
 var apis = require('./routes/apis');
+var bots = require('./routes/bots');
+
 
 var app = express();
 
