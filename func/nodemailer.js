@@ -32,7 +32,7 @@ function sendMail(mailList){
 }; 
 // send mail with defined transport object
 module.exports = function (mailAddress){
-    // let mailList = mailAddress;
-    sendMail(mailAddress);
+    let mailList = mailAddress;
+    sendMail(mailList);
     
 }
