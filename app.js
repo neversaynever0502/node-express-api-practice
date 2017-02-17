@@ -28,7 +28,14 @@ var connectionString = 'mongodb://user:123456@ds153669.mlab.com:53669/practice12
 mongoose.connect(connectionString);
 
 
-
+app.all('*', function(req, res, next) {  
+    res.header("Access-Control-Allow-Origin", "*");  
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");  
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");  
+    res.header("X-Powered-By",' 3.2.1');  
+    res.header("Content-Type", "application/json;charset=utf-8");  
+    next();  
+});  
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -45,20 +52,20 @@ app.use('/api',apis);
 app.use('/newapi', members); //This is our route middleware
 app.use('/', index.memberAll);
 app.use('/users', users);
-// app.use('/bot',bots);
+app.use('/bot',bots);
 
-var bot = linebot({
-  channelId: "1501711063",
-  channelSecret: "8f0a3770e17a34091ae10d23d60f1e8b",
-  channelAccessToken: "FwZsKqF19GuRSqB/IS04XpYZ13IVXd+uKQjFG3L0J46gggw096I8fTXGm7OR2FxeWu9qu4wNXSAyoT8GoWUz1gp4xrum/czwT7RL5SSwqk2kiSipawNmBEOyE00eHNPo9FXNbUNvYQsVJ64p1VJbqgdB04t89/1O/w1cDnyilFU="
-});
+// var bot = linebot({
+//   channelId: "1501711063",
+//   channelSecret: "8f0a3770e17a34091ae10d23d60f1e8b",
+//   channelAccessToken: "FwZsKqF19GuRSqB/IS04XpYZ13IVXd+uKQjFG3L0J46gggw096I8fTXGm7OR2FxeWu9qu4wNXSAyoT8GoWUz1gp4xrum/czwT7RL5SSwqk2kiSipawNmBEOyE00eHNPo9FXNbUNvYQsVJ64p1VJbqgdB04t89/1O/w1cDnyilFU="
+// });
 
-bot.on('message', function(event) {
-  console.log(event); //把收到訊息的 event 印出來看看
-});
+// bot.on('message', function(event) {
+//   console.log(event); //把收到訊息的 event 印出來看看
+// });
 
-const linebotParser = bot.parser();
-app.post('/bot', linebotParser);
+// const linebotParser = bot.parser();
+// app.post('/bot', linebotParser);
 
 
 

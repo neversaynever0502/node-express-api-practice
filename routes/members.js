@@ -1,6 +1,7 @@
 var Movie = require('../models/member');
 var mailer = require('../func/nodemailer');
 var express = require('express');
+var bodyParser = require('body-parser');
 var router = express.Router();
 
 router.route('/testmail').get(function(req, res) {

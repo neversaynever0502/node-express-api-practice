@@ -29,10 +29,10 @@ function sendMail(mailList){
             }
             console.log('Message %s sent: %s', info.messageId, info.response);
         });
-};
+}; 
 // send mail with defined transport object
 module.exports = function (mailAddress){
-    let mailList = mailAddress;
-    sendMail(mailList);
+    // let mailList = mailAddress;
+    sendMail(mailAddress);
     
 }
