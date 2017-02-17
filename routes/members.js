@@ -36,8 +36,8 @@ router.route('/members')
 
 
 router.route('/members/confirm').get(function(req, res) {
-   res.json({'email':req.param.email,'password':req.param.password});
-   console.log('email confirmed')
+   res.json({email:req.param.email,password:req.param.password});
+   console.log('email confirmed');
   });
 
 
