@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api',apis);
 app.use('/newapi', members); //This is our route middleware
-app.use('/', index);
+app.use('/', index.memberAll);
 app.use('/users', users);
 
 
