@@ -19,7 +19,7 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 
-var port = normalizePort(process.env.PORT || '8080');
+var port2 = normalizePort(process.env.PORT || '8080');
 
 app.set('port2', port2);
 /**
