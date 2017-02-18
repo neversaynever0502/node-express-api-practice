@@ -9,6 +9,7 @@ var linebot = require('linebot');
 
 
 var members = require('./routes/members'); //routes are defined here
+var members2 = require('./routes/members2');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var apis = require('./routes/apis');
@@ -52,6 +53,7 @@ app.all('*', function(req, res, next) {
 
 app.use('/api',apis);
 app.use('/newapi', members); //This is our route middleware
+app.use('/newapi2', members2);
 app.use('/', index.memberAll);
 app.use('/users', users);
 app.use('/bot',bots);

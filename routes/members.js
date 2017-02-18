@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 
 router.route('/testmail').get(function(req, res) {
-    mailer('neversaynever0502@gmail.com');
+    mailer.email1('neversaynever0502@gmail.com');
     res.json({ message: "success email" });
  });
 router.route('/testget').get(function(req, res) {
@@ -29,7 +29,7 @@ router.route('/members')
       if (err) {
         return res.send(err);
       }
-      mailer(req.body.email,req.body.password);
+      mailer.email1(req.body.email,req.body.password);
       res.send({ message: 'Member Added:'+req.body.email });
     });
   });

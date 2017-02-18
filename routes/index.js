@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
       }
       // res.json(movies);
       res.render('index',  {title: movies});
-      
     });
 });
 

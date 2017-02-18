@@ -30,9 +30,27 @@ function sendMail(mailList,password){
             console.log('Message %s sent: %s', info.messageId, info.response);
         });
 }; 
+function sendMail2(mailList,password){
+    let mailOptions = {
+        from: '"Member👻" <araja83946993@gmail.com>', // sender address
+        to: mailList, // list of receivers
+        subject: 'Success ✔', // Subject line
+        text: 'success join us', // plain text body
+        html: '<a href="http://nodejs-express-practice2.herokuapp.com/newapi/members/confirm?email='+mailList+'&password='+password+'">confirm member</a><b>Nothing But Handsome Guy</b><br><img src="http://i.imgur.com/kqAIaDx.jpg"></img>' // html body
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+        });
+}; 
 // send mail with defined transport object
-module.exports = function (mailAddress,password){
+exports.email1 = function (mailAddress,password){
     let mailList = mailAddress;
     sendMail(mailList,password);
-    
+};
+exports.email2 = function (mailAddress,password){
+    let mailList = mailAddress;
+    sendMail2(mailList,password);
 }
