@@ -14,6 +14,5 @@ router.get('/', function(req, res, next) {
     });
 });
 
-var test = 999;
 
 exports.memberAll = router;
