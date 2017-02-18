@@ -43,6 +43,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('*', function(req, res, next) {  
+    // var whitelist = ['localhost:4000', 'localhost:3000', 'anydomain.com']
+    // var host = req.get('host');
+
+    // whitelist.forEach(function(val, key){
+    //   if (host.indexOf(val) > -1){
+    //     res.setHeader('Access-Control-Allow-Origin', host);
+    //   }
+    // })
     res.header("Access-Control-Allow-Origin", "*");  
     res.header("Access-Control-Allow-Headers", "Origin, Content-Type, X-Requested-With");  
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");  
